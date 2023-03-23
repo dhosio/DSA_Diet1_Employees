@@ -5,7 +5,12 @@ import interfaces.IEmpView;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
-// This is the class that will hold the components of a node in the circular double linked list
+/**
+ * @author <a href="mailto:d.githiomi@alustudent.com">Daniel Githiomi</a>
+ * @param <Employee> the data type to be stored in each node
+ * Implements IEmpView interface
+ */
+
 public class Node<Employee> implements IEmpView {
 
     // The node will have data of type employee
@@ -17,7 +22,10 @@ public class Node<Employee> implements IEmpView {
     // A reference to the previous node in the list
     public Node<Employee> prevNode;
 
-    // Constructor
+    /**
+     * 1 arg constructor to create a new node
+     * @param newValue the value to be stored in the node
+     */
     public Node(Employee newValue){
         // Create a new node and init its previous and next nodes as null
         this.nodeValue = newValue;
@@ -25,6 +33,9 @@ public class Node<Employee> implements IEmpView {
         this.nextNode = null;
     }
 
+    /**
+     * Display the class information
+     */
     @Override
     public void display() {
         // Method to show relevant information about the class

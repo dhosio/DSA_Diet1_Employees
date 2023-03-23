@@ -5,7 +5,6 @@ import interfaces.IEmpView;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
-// Class that inherits from the IEmpView Interface
 public class IEmpViewTest implements IEmpView {
 
     String name;

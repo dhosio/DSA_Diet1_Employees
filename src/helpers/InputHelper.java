@@ -1,32 +1,24 @@
 package helpers;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
- *
  * @author Daniel Githiomi
  */
 public class InputHelper {
     private final Scanner reader;
 
     /**
-     *
+     * Zero args constructor to create a new InputHelper instance
      */
     public InputHelper() {
         reader = new Scanner(System.in);
     }
 
-    // Read Character
     /**
-     *
-     * @param prompt
-     * @return
+     * Read character input from the user
+     * @param prompt the string to be displayed before the input
+     * @return the character input from the user
      */
     public char readCharacter(String prompt) {
 
@@ -35,12 +27,11 @@ public class InputHelper {
         return inputText;
     }
 
-    // Read Character - set of valid values
     /**
-     *
-     * @param prompt
-     * @param validCharacters
-     * @return
+     * Read character input from the user giving a specific character range
+     * @param prompt the string to be displayed before the input
+     * @param validCharacters the valid character range
+     * @return the character input from the user
      */
     public char readCharacter(String prompt, String validCharacters) {
         char inputText;
@@ -57,28 +48,23 @@ public class InputHelper {
         return inputText;
     }
 
-    // Read String
-
     /**
-     *
-     * @param prompt
-     * @return
+     * Read string input from the user giving a specific character range
+     * @param prompt the string to be displayed before the input
+     * @return the string input from the user
      */
     public String readString(String prompt) {
 
         System.out.println(prompt + ": ");
-        String inputText = reader.nextLine();
-        return inputText;
+        return reader.nextLine();
     }
 
-    // Read Int
-
     /**
-     *
-     * @param prompt
-     * @param max
-     * @param min
-     * @return
+     * Read integer input from the user giving a specific int range of max and min
+     * @param prompt the string to be displayed before the input
+     * @param max the maximum number for the input
+     * @param min the minimum number for the input
+     * @return the integer input from the user
      */
     public int readInt(String prompt, int max, int min) {
         int inputNumber = 0;
@@ -101,12 +87,10 @@ public class InputHelper {
         return inputNumber;
     }
 
-    // Read Int
-
     /**
-     *
-     * @param prompt
-     * @return
+     * Read integer input from the user giving a specific int range of max and min
+     * @param prompt the string to be displayed before the input
+     * @return the integer input from the user
      */
     public int readInt(String prompt) {
         int inputNumber = 0;
