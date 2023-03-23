@@ -28,7 +28,7 @@ public class DAOImplementation implements DAOInterface {
      */
     @Override
     public void store(String fileName, List<Employee> employees) {
-//
+
         try (PrintWriter output = new PrintWriter(fileName)) {
             for (Employee employee : employees) {
                 output.println(employee.toString(DELIMITER));
@@ -91,7 +91,7 @@ public class DAOImplementation implements DAOInterface {
         }
 
         if (employeesFromList.size() == 0) {
-            System.out.println("No employees could be retrieved");
+            System.out.println("\u001B[31m\n--- No employees could be retrieved ---\u001B[0m\n");
             return null;
         }
 

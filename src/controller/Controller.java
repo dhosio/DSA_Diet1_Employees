@@ -82,6 +82,7 @@ public class Controller {
 
     /**
      * Provide the user the main menu of actions they could perform in the application
+     *
      * @return The user selected character choice
      */
     public char showMenu() {
@@ -122,6 +123,7 @@ public class Controller {
 
     /**
      * Get the qualification the user wishes to search for
+     *
      * @return The string qualification given by the user
      */
     public String getQualification() {
@@ -153,7 +155,7 @@ public class Controller {
     /**
      * Pop an employee from the end of the list
      */
-    public void removeEmployee(){
+    public void removeEmployee() {
         employeeContainer.remove();
     }
 
@@ -184,7 +186,7 @@ public class Controller {
      */
     public void searchByQualification() {
 
-        String qualification = inputHelper.readString("Enter the qualification you want to search for");
+        String qualification = getQualification();
 
         employeeContainer.listWithQualification(qualification);
 
