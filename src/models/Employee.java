@@ -2,6 +2,7 @@ package models;
 
 import interfaces.IEmpView;
 
+import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
@@ -12,7 +13,7 @@ import java.util.Objects;
  * @author <a href="mailto:d.githiomi@alustudent.com">Daniel Githiomi</a>
  * Interface: IEmpView
  */
-public class Employee implements IEmpView {
+public class Employee implements IEmpView, Serializable {
 
     // Class variables
     static int numberOfEmployees = 1;
@@ -38,6 +39,7 @@ public class Employee implements IEmpView {
     /**
      * 7 args constructor to create a new employee with a passed date
      *
+     * @param employeeID             the employee's ID
      * @param firstName            the employee's first name
      * @param lastName             the employee's last name
      * @param address              the employee's address
@@ -46,8 +48,8 @@ public class Employee implements IEmpView {
      * @param dateJoined           the date the employee joined
      * @param highestQualification the employee's highest qualification
      */
-    public Employee(String firstName, String lastName, String address, String telephoneNumber, String email, String dateJoined, String highestQualification) {
-        this.employeeID = numberOfEmployees++;
+    public Employee(int employeeID, String firstName, String lastName, String address, String telephoneNumber, String email, String dateJoined, String highestQualification) {
+        this.employeeID = employeeID;
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;

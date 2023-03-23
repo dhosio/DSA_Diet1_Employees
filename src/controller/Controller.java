@@ -1,6 +1,7 @@
 package controller;
 
 import dao.DAOImplementation;
+import dao.DAOInterface;
 import helpers.InputHelper;
 import list.EmployeeList;
 import models.Employee;
@@ -18,6 +19,9 @@ public class Controller {
     // Container to hold the elements of the list
     EmployeeList employeeContainer;
 
+    // The DAO Interface
+    DAOInterface daoInterface = new DAOImplementation();
+
     /**
      * Zero argument Controller constructor to initialize the input helper and employee container
      */
@@ -34,7 +38,7 @@ public class Controller {
         switch (fileReading) {
             case 'y':
                 String filename = inputHelper.readString("Enter the name of the file");
-                List<Employee> retrievedEmployees = new DAOImplementation().load(filename + ".txt");
+                List<Employee> retrievedEmployees = daoInterface.load(filename + ".txt");
 
                 for (Employee employee : retrievedEmployees) {
                     employeeContainer.insertFromFile(employee);
@@ -190,6 +194,10 @@ public class Controller {
      * Terminate the running of the controller class
      */
     public void quitApp() {
-        // Quiting the app
+
+        System.out.format("\u001B[34m%n%s", "--- Before exiting, please save your progress in a file ---");
+        String fileName = inputHelper.readString("Enter the file name");
+
+        daoInterface.store(fileName + ".txt", employeeContainer.getEmployees());
     }
 }

@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface DAOInterface {
 
-    void store(String fileName, List<Employee> employees) throws Exception;
+    void store(String fileName, List<Employee> employees);
 
     List<Employee> load(String fileName);
 

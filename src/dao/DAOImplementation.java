@@ -9,12 +9,9 @@ package dao;
 import models.Employee;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,15 +27,16 @@ public class DAOImplementation implements DAOInterface {
      * @param employees the list of employees to be persisted
      */
     @Override
-    public void store(String fileName, List<Employee> employees) throws Exception {
+    public void store(String fileName, List<Employee> employees) {
 //
-//        try (PrintWriter output = new PrintWriter(fileName)) {
-//            output.print(repository.toString(DELIMITER));
-//            output.close();
-//        } catch (FileNotFoundException ex) {
-//            Logger.getLogger(DAOImplementation.class.getName()).log(Level.SEVERE, null, ex);
-//            System.out.format("Error in %s store method. Error: \n" + ex.getMessage(), DAOImplementation.class.getName());
-//        }
+        try (PrintWriter output = new PrintWriter(fileName)) {
+            for (Employee employee : employees) {
+                output.println(employee.toString(DELIMITER));
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(DAOImplementation.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.format("Error in %s store method. Error: \n" + ex.getMessage(), DAOImplementation.class.getName());
+        }
 
     }
 
@@ -52,7 +50,7 @@ public class DAOImplementation implements DAOInterface {
     public List<Employee> load(String fileName) {
 
         // List to store the retrieved employees
-        List<Employee> employeesFromList = new ArrayList<Employee>();
+        List<Employee> employeesFromList = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
             String[] employeeTempArray;
@@ -78,7 +76,7 @@ public class DAOImplementation implements DAOInterface {
                 String highestQualification = employeeTempArray[7];
 
                 // Initialize the employee object with the data
-                employee = new Employee(firstName, lastName, address, phoneNumber, emailAddress, dateJoined, highestQualification);
+                employee = new Employee(employeeId, firstName, lastName, address, phoneNumber, emailAddress, dateJoined, highestQualification);
 
                 // Add the employee to the list
                 employeesFromList.add(employee);
@@ -86,15 +84,13 @@ public class DAOImplementation implements DAOInterface {
                 // Read the next Line
                 fileLine = br.readLine();
             }
-            // Close buffered reader
-            br.close();
 
         } catch (Exception ex) {
             Logger.getLogger(DAOImplementation.class.getName()).log(Level.SEVERE, null, ex);
             System.out.format("Error in %s's load method. Error: \n" + ex.getMessage(), DAOImplementation.class.getName());
         }
 
-        if (employeesFromList.size() == 0){
+        if (employeesFromList.size() == 0) {
             System.out.println("No employees could be retrieved");
             return null;
         }
