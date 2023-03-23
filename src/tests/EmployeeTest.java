@@ -2,6 +2,7 @@ package tests;
 
 import models.Employee;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -13,7 +14,7 @@ public class EmployeeTest {
         // models.Employee Details
         String firstName = "Daniel";
         String lastName = "Githiomi";
-        String address = "Powder Mill Rd, Pamplemousses";
+        String address = "Powder Mill Rd";
         String telephoneNumber = "57118407";
         String email = "d.githiomi@alustudent.com";
         String highestQualification = "University Diploma";
@@ -27,10 +28,10 @@ public class EmployeeTest {
         // New details
         String newFirstName = "John";
         String newLastName = "Doe";
-        String newAddress = "Vignt Pieds, Grand Baie";
+        String newAddress = "Vignt Pieds";
         String newTelephoneNumber = "57920512";
         String newEmail = "johndoe@gmail.com";
-        Date newDateJoined = new Date();
+        String newDateJoined = new SimpleDateFormat("E dd/MM/yyyy 'at' HH:mm").format(new Date());
         String newHighestQualification = "Master's Degree";
 
         // Update the employee details
@@ -47,6 +48,9 @@ public class EmployeeTest {
         System.out.println("\n\nPrinting employee");
         System.out.println(emp);
 
+        System.out.println("Printing delimited employee: ---");
+        System.out.println(emp.toString(','));
+
     }
 
     /**
@@ -61,11 +65,11 @@ public class EmployeeTest {
         String empAddress = emp.getAddress();
         String telNumber = emp.getTelephoneNumber();
         String empEmail = emp.getEmail();
-        Date dateJoined = emp.getDateJoined();
+        String dateJoined = emp.getDateJoined();
         String highestQualification = emp.getHighestQualification();
 
         System.out.println("-------------------");
-        System.out.format("\nEmployee Details: \n\nEmployee ID: %d\nFirst Name: %s\nLast Name: %s\nAddress: %s\nPhone Number: %d\n" + "Email: %s\nDate joined: " + dateJoined + "\nHighest Qualification: %s\n", empId, fName, lName, empAddress, telNumber, empEmail, highestQualification);
+        System.out.format("\nEmployee Details: \n\nEmployee ID: %d\nFirst Name: %s\nLast Name: %s\nAddress: %s\nPhone Number: %s\n" + "Email: %s\nDate joined: " + dateJoined + "\nHighest Qualification: %s\n", empId, fName, lName, empAddress, telNumber, empEmail, highestQualification);
     }
 
     /**
@@ -86,7 +90,7 @@ public class EmployeeTest {
         emp.setAddress(newAddress);
         emp.setTelephoneNumber(newTelephoneNumber);
         emp.setEmail(newEmail);
-        emp.setDateJoined(new Date());
+        emp.setDateJoined(new SimpleDateFormat("E dd/MM/yyyy 'at' HH:mm").format(new Date()));
         emp.setHighestQualification(newHighestQualification);
     }
 

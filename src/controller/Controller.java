@@ -1,8 +1,11 @@
 package controller;
 
+import dao.DAOImplementation;
 import helpers.InputHelper;
 import list.EmployeeList;
 import models.Employee;
+
+import java.util.List;
 
 /**
  * @author <a href="mailto:d.githiomi@alustudent.com">Daniel Githiomi</a>
@@ -30,7 +33,13 @@ public class Controller {
 
         switch (fileReading) {
             case 'y':
-//                String filename = inputHelper.readString("\nEnter the name of the file");
+                String filename = inputHelper.readString("Enter the name of the file");
+                List<Employee> retrievedEmployees = new DAOImplementation().load(filename + ".txt");
+
+                for (Employee employee : retrievedEmployees) {
+                    employeeContainer.insertFromFile(employee);
+                }
+
                 break;
             case 'n':
                 break;

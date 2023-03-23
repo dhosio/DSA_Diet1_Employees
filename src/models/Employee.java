@@ -4,6 +4,7 @@ import interfaces.IEmpView;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
 
@@ -24,7 +25,7 @@ public class Employee implements IEmpView {
     public String address;
     public String telephoneNumber;
     public String email;
-    public Date dateJoined;
+    public String dateJoined;
     public String highestQualification;
 
     /**
@@ -32,6 +33,28 @@ public class Employee implements IEmpView {
      */
     public Employee() {
         this.employeeID = numberOfEmployees++;
+    }
+
+    /**
+     * 7 args constructor to create a new employee with a passed date
+     *
+     * @param firstName            the employee's first name
+     * @param lastName             the employee's last name
+     * @param address              the employee's address
+     * @param telephoneNumber      the employee's phone number
+     * @param email                the employee's email address
+     * @param dateJoined           the date the employee joined
+     * @param highestQualification the employee's highest qualification
+     */
+    public Employee(String firstName, String lastName, String address, String telephoneNumber, String email, String dateJoined, String highestQualification) {
+        this.employeeID = numberOfEmployees++;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.telephoneNumber = telephoneNumber;
+        this.email = email;
+        this.dateJoined = dateJoined;
+        this.highestQualification = highestQualification;
     }
 
     /**
@@ -51,7 +74,7 @@ public class Employee implements IEmpView {
         this.address = address;
         this.telephoneNumber = telephoneNumber;
         this.email = email;
-        this.dateJoined = new Date();
+        this.dateJoined = new SimpleDateFormat("E dd/MM/yyyy 'at' HH:mm").format(new Date());
         this.highestQualification = highestQualification;
     }
 
@@ -170,7 +193,7 @@ public class Employee implements IEmpView {
      *
      * @return date object of the date the employee joined
      */
-    public Date getDateJoined() {
+    public String getDateJoined() {
         return dateJoined;
     }
 
@@ -179,7 +202,7 @@ public class Employee implements IEmpView {
      *
      * @param dateJoined the date object to be set
      */
-    public void setDateJoined(Date dateJoined) {
+    public void setDateJoined(String dateJoined) {
         this.dateJoined = dateJoined;
     }
 
@@ -245,7 +268,23 @@ public class Employee implements IEmpView {
 
     }
 
-    // To compare different Employee instances - Based on ID only
+    public String toString(char delimiter) {
+        return String.valueOf(this.getEmployeeID()) + delimiter +
+                this.getFirstName() + delimiter +
+                this.getLastName() + delimiter +
+                this.getAddress() + delimiter +
+                this.getTelephoneNumber() + delimiter +
+                this.getEmail() + delimiter +
+                this.getDateJoined() + delimiter +
+                this.getHighestQualification();
+    }
+
+    /**
+     * Compare if two employee objects are the same based only on the unique ID
+     *
+     * @param o the employee object being compared
+     * @return true if the passed employee ID matches the current employee ID, false otherwise
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -253,6 +292,11 @@ public class Employee implements IEmpView {
         return employeeID == employee.employeeID;
     }
 
+    /**
+     * Hash the employee object based only on the employee ID
+     *
+     * @return an int of the hashcode location in memory
+     */
     @Override
     public int hashCode() {
         return Objects.hash(employeeID);
