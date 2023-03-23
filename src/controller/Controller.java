@@ -71,7 +71,7 @@ public class Controller {
                 case 'd' -> searchByPhoneNumber();
                 case 'e' -> searchByLastName();
                 case 'f' -> searchByQualification();
-                case 'g' -> {
+                case 'q' -> {
                     quitApp();
                     quit = true;
                 }
@@ -94,10 +94,10 @@ public class Controller {
                 D. Search by phone number.
                 E. Search by last name.
                 F. Find all employees with a specific qualification.
-                G. Exit application
+                Q. Exit application
                 \u001B[0m
                 """);
-        return Character.toLowerCase(inputHelper.readCharacter("Select an option", "AaBbCcDdEeFfGg"));
+        return Character.toLowerCase(inputHelper.readCharacter("Select an option", "AaBbCcDdEeFfQq"));
     }
 
     /**
@@ -195,7 +195,7 @@ public class Controller {
      */
     public void quitApp() {
 
-        System.out.format("\u001B[34m%n%s", "--- Before exiting, please save your progress in a file ---");
+        System.out.format("\u001B[34m%n%s%n\u001B[0m", "--- Before exiting, please save your progress in a file ---");
         String fileName = inputHelper.readString("Enter the file name");
 
         daoInterface.store(fileName + ".txt", employeeContainer.getEmployees());
