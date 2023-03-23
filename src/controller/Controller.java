@@ -144,7 +144,7 @@ public class Controller {
             case 'a' -> qualification = "High School";
             case 'b' -> qualification = "University Diploma";
             case 'c' -> qualification = "Bachelor's Degree";
-            case 'd' -> qualification = "Masters Degree";
+            case 'd' -> qualification = "Master's Degree";
             case 'e' -> qualification = "PHD";
         }
         return qualification;

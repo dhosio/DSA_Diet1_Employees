@@ -1,2 +1,10 @@
-1,Daniel,Githiomi,Grand Baie,0715126969,daniel@gmail.com,Thu 23/03/2023 at 23:54,Bachelor's Degree
-1,MArgaret,Maina,Pereybere,57118407,maggy@maina.com,Thu 23/03/2023 at 23:56,PHD
+1,Daniel,Githiomi,Grand Baie,0715126969,daniel@gmail.com,Thu 23/03/2023 at 23:54,Master's Degree
+2,Margaret,Maina,Pereybere,57118407,maggy@maina.com,Thu 23/03/2023 at 23:56,High School
+3,Justus,Korir,Vacoas,47664563,justus@gmail.com,Thu 23/03/2023 at 23:56,University Diploma
+4,Joshen,Naaib,Flic en Flac,7688796,naaib.j@gmail.com,Thu 23/03/2023 at 23:56,Bachelor's Degree
+5,Annsee,Togara,Moka,22564566,annsee@yahoo.com,Thu 23/03/2023 at 23:56,PHD
+6,Naomi,Naokoka,Ebene,67867543,naokoka@gmail.com,Thu 23/03/2023 at 23:56,Master's Degree
+7,Clifford,Bruce,Quatre Bonnes,7687983,bruce@hotmail.com,Thu 23/03/2023 at 23:56,High School
+8,James,Kagiri,Mon Choisy,43566578,kagiri@alustudent.com,Thu 23/03/2023 at 23:56,University Diploma
+9,Dhosio,Hoes,Triolet,90878874,dhosio@gmail.com,Thu 23/03/2023 at 23:56,Bachelor's Degree
+10,Captano,Kasheri,Pamplempousses,334567888,kasheri@gmail.com,Thu 23/03/2023 at 23:56,PHD
