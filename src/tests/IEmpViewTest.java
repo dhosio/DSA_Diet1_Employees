@@ -7,9 +7,6 @@ import java.lang.reflect.Method;
 
 public class IEmpViewTest implements IEmpView {
 
-    String name;
-    int age;
-
     @Override
     public void display() {
         // Method to show relevant information about the class

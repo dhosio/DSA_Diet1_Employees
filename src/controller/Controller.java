@@ -33,7 +33,8 @@ public class Controller {
         // Get the Employee List
         employeeContainer = new EmployeeList();
 
-        char fileReading = Character.toLowerCase(inputHelper.readCharacter("\nAre you loading from an existing file? (Y/N)", "YyNn"));
+        char fileReading = Character.toLowerCase(inputHelper.readCharacter("\nAre you loading from an existing " +
+                "file? (Y/N)", "YyNn"));
 
         switch (fileReading) {
             case 'y':
